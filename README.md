@@ -52,5 +52,5 @@ a **[Policko]** obsahuje všetky políčka, na ktoré sa daná figúrka zo svoje
  
 <br>
 <br>
-Ďalšie príklady výstupov pre rôzne pozície sú na konci skriptu **mat.hs**.
+Ďalšie príklady výstupov pre rôzne pozície sú na konci skriptu *mat.hs*.
  
