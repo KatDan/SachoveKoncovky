@@ -617,9 +617,18 @@ napadnutePoliaFigur'' (p:pozicie) polickafigur = (((pozicia, [x | x <- zoznam]))
        
 
 -- testy
+test1 :: IO ()
+test1 = dajMat ["Da2", "Ka1"] "Ke5"
+test2 :: IO ()
+test2 = dajMat ["Da1", "Kc2"] "Kf4"
+test3 :: IO ()
+test3 = dajMat ["Df7", "Ke2"] "Kg1"
+test4 :: IO ()
+test4 = dajMat ["Db7", "Ke6"] "Kd8"
+
 
 -- dama medzi kralmi
--- >>> dajMat ["Da2", "Ka1"] "Ke5"
+-- >>> test1
 -- Dc4     Kd6
 -- Db5     Ke6
 -- Dc5     Kd7
@@ -635,9 +644,10 @@ napadnutePoliaFigur'' (p:pozicie) polickafigur = (((pozicia, [x | x <- zoznam]))
 -- Ke5     Kh8
 -- Kf6     Kg8
 -- Dg7#
+--
 
 -- dama nie je medzi kralmi
--- >>> dajMat ["Da1", "Kc2"] "Kf4"
+-- >>> test2
 -- Da3     Ke4
 -- Dc3     Kd5
 -- Db4     Ke5
@@ -657,20 +667,31 @@ napadnutePoliaFigur'' (p:pozicie) polickafigur = (((pozicia, [x | x <- zoznam]))
 -- Dh7#
 --
 
--- >>> dajMat ["Df7", "Ke2"] "Kg1"
+-- >>> test3
 -- Df3     Kh2
 -- Dg4     Kh1
 -- Kf1     Kh2
 -- Dh4#
 --
 
--- >>> dajMat ["Db7", "Ke6"] "Kd8"
+-- >>> test4
 -- Db8#
 --
 
+test5 :: IO ()
+test5 = dajMat ["Vb1", "Vg2", "Kh3"] "Kd6"
+test6 :: IO ()
+test6 = dajMat ["Ve7", "Vb4", "Ka3"] "Kf3"
+test7 :: IO ()
+test7 = dajMat ["Va3", "Vg2", "Kc4"] "Kh1"
+test8 :: IO ()
+test8 = dajMat ["Ve7", "Ve4", "Ka3"] "Kf3"
+test9 :: IO ()
+test9 = dajMat ["Ve2", "Va2", "Ka3"] "Kg1"
+
 
 -- veze matujuce po riadkoch
--- >>> dajMat ["Vb1", "Vg2", "Kh3"] "Kd6"
+-- >>> test5
 -- Vg5     Kc6
 -- Vh1     Kd6
 -- Va1     Kc6
@@ -680,7 +701,7 @@ napadnutePoliaFigur'' (p:pozicie) polickafigur = (((pozicia, [x | x <- zoznam]))
 --
 
 -- veze matujuce po stlpcoch
--- >>> dajMat ["Ve7", "Vb4", "Ka3"] "Kf3"
+-- >>> test6
 -- Vb8     Kf4
 -- Vf8+    Kg4
 -- Vg7+    Kh4
@@ -688,13 +709,13 @@ napadnutePoliaFigur'' (p:pozicie) polickafigur = (((pozicia, [x | x <- zoznam]))
 --
 
 -- veza je napadnuta
--- >>> dajMat ["Va3", "Vg2", "Kc4"] "Kh1"
+-- >>> test7
 -- Vb2     Kg1
 -- Va1#
 --
 
 -- veze v jednom stlpci
--- >>> dajMat ["Ve7", "Ve4", "Ka3"] "Kf3"
+-- >>> test8
 -- Ve6     Kf4
 -- Vf6+    Kg4
 -- Vg7+    Kh4
@@ -702,6 +723,6 @@ napadnutePoliaFigur'' (p:pozicie) polickafigur = (((pozicia, [x | x <- zoznam]))
 --
  
 -- veze v jednom riadku 
--- >>> dajMat ["Ve2", "Va2", "Ka3"] "Kg1"
+-- >>> test9
 -- Va1#
 --
