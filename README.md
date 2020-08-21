@@ -50,3 +50,7 @@ a **[Policko]** obsahuje všetky políčka, na ktoré sa daná figúrka zo svoje
 ### Spracovanie výsledku
  - **vypisVysledok :: [Tah] -> IO()** - Výsledkom výpočtovej časti je zoznam ťahov **Tah**, ktoré obsahujú ťah bieleho a čierneho. Funkcia vypíše postupnosť ťahov na štandardný výstup.
  
+<br>
+<br>
+Ďalšie príklady výstupov pre rôzne pozície sú na konci skriptu **mat.hs*.
+ 
