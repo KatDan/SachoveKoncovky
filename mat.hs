@@ -28,6 +28,10 @@ instance Show Tah where
     else (poziciaNaString biely) ++ "     "++(poziciaNaString cierny)
   show (TahZaver biely) = (poziciaNaString biely) ++ "#"
 
+-- hlavna funkcia, testy na konci
+dajMat :: [[Char]] -> [Char] -> IO()
+dajMat biely cierny = vypisVysledok (zbierajTahy ([polickaPreFigurku (prelozStringNaPoziciu x) | x <- biely],polickaPreFigurku (prelozStringNaPoziciu cierny)))
+
 -- >>> vypisVysledok [Tah (D (Policko 4 4)) True (K (Policko 1 3)), TahZaver (D (Policko 1 4))]
 -- Dd4+    Ka3
 -- Da4#
@@ -36,9 +40,6 @@ vypisVysledok [] = return ()
 vypisVysledok (x:xs) = do putStrLn (show x)
                           vypisVysledok xs
 
--- hlavna funkcia, testy na konci
-dajMat :: [[Char]] -> [Char] -> IO()
-dajMat biely cierny = vypisVysledok (zbierajTahy ([polickaPreFigurku (prelozStringNaPoziciu x) | x <- biely],polickaPreFigurku (prelozStringNaPoziciu cierny)))
 
 -- >>> prelozStringNaPoziciu "De2"
 -- D (Policko 5 2)
@@ -479,7 +480,7 @@ matVaV figurky Stlpec = sekajStlpce figurky
 -- (K (Policko 7 8),[Policko 8 8,Policko 6 8])))
 --
 sekajRiadky :: ([(Pozicia,[Policko])],(Pozicia, [Policko])) -> (Pozicia,([(Pozicia,[Policko])],(Pozicia, [Policko])))
-sekajRiadky figurky@([veza1@(V (Policko _ v1y),v1policka), veza2@(V (Policko _ v2y), v2policka), kral@(K (Policko _ ky),_)],ckral@(K (Policko _ cky),cpolicka))
+sekajRiadky figurky@([veza1@(V (Policko _ v1y),v1policka), veza2@(V (Policko _ v2y), v2policka), kral@(K (Policko _ ky),_)],ckral@(K (Policko _ cky),_))
  | v1y - smer == cky = if (bezpecnePolicko veza1 [veza1,veza2,kral] ckral ) == True
                        then (fst novapoz22, napadnutePoliaFigur ([veza1, novapoz22, kral], ckral))
                        else (fst novapoz21, napadnutePoliaFigur ([novapoz21, veza2, kral], ckral))
